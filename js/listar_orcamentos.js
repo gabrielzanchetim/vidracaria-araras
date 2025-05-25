@@ -1,8 +1,10 @@
-let orcamentos = [];
+if (typeof window.orcamentos === 'undefined') {
+  window.orcamentos = [];
+}
 
 async function carregarOrcamentos() {
   const resp = await fetch('../php/listar_orcamentos.php');
-  orcamentos = await resp.json();
+  window.orcamentos = await resp.json();
   renderizarTabela();
 }
 
@@ -13,7 +15,7 @@ function renderizarTabela() {
   const busca = document.getElementById('busca').value.toLowerCase();
   const dataRange = document.getElementById('filtroData').value;
 
-  const resultados = orcamentos.filter(o => {
+  const resultados = window.orcamentos.filter(o => {
     const matchBusca = o.nome_cliente.toLowerCase().includes(busca) 
 
     let matchData = true;
