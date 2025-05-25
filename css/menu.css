@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f7f8;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+  
+.dashboard {
+    display: flex;
+    flex: 1;
+}
+  
+.sidebar {
+    width: 250px;
+    background-color: #1A3439;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.sidebar .logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .logo img {
+    width: 150px;
+    margin-top: 20px;
+}
+
+.sidebar nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.sidebar nav a i {
+    margin-right: 10px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background-color: #265d68;
+}
+  
+.sidebar h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.logout-btn {
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+  
+.logout-btn:hover {
+    background-color: #992d22;
+}
+  
+.main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+  
+.main-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+  
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #1A3439;
+}
+  
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+  
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 30px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: 0.3s;
+}
+  
+.card i {
+    font-size: 32px;
+    color: #1A3439;
+    margin-bottom: 10px;
+}
+  
+.card:hover {
+    transform: scale(1.03);
+    background-color: #f0f8fa;
+}
+  
+.footer {
+    background-color: #1A3439;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.top-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+/* Botão de Início */
+.btn-voltar-inicio {
+    background-color: #1A3439;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-voltar-inicio:hover {
+    background-color: #265d68;
+}
+
+/* Botão de Sair */
+.logout-button {
+    background-color: #c9302c;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logout-button:hover {
+    background-color: #ba1c16;
+}
+

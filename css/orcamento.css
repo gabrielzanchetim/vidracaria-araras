@@ -1,0 +1,157 @@
+.dashboard {
+  display: flex;
+}
+
+.main-content {
+  flex: 1;
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.left-actions {
+  flex-shrink: 0;
+}
+
+.right-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.form-section {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: #1A3439;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+}
+
+select, input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.right-actions button, .form-section button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.btn-pdf {
+  background-color: #e63946;
+  color: #fff;
+}
+
+.btn-limpar {
+  background-color: #1d3557;
+  color: #fff;
+}
+
+.orcamento-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.orcamento-form button {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.orcamento-materiais table,
+.orcamento-resultados table,
+.orcamento-resumo-final table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+th {
+  background-color: #1A3439;
+  color: #fff;
+}
+
+.orcamento-tabela-produto {
+  margin-top: 20px;
+}
+
+.orcamento-tabela-produto h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #1A3439;
+}
+
+.orcamento-resumo-final {
+  margin-top: 40px;
+}
+
+.orcamento-resumo-final td button {
+  background: none;
+  color: #e63946;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#cliente {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+#cliente:focus {
+  border-color: #1a3439;
+  box-shadow: 0 0 0 2px rgba(26, 52, 57, 0.2);
+}
+
+#observacaoProduto {
+  width: 100%;
+  max-width: 600px;
+  height: 80px;
+  resize: none;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}

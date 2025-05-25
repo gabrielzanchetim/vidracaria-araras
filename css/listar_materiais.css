@@ -1,0 +1,211 @@
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin-top: 20px;
+  background: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+th {
+  background-color: #1A3439;
+  color: white;
+  padding: 14px;
+  text-align: center;
+}
+
+td {
+  background-color: #fff;
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  color: #333;
+}
+
+tbody tr {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+
+/* MODAL EDITAR */
+#modal-editar {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 420px;
+  max-width: 90%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+#modal-editar h3 {
+  font-size: 24px;
+  color: #1A3439;
+  margin-bottom: 18px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+#modal-editar label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+  margin-top: 14px;
+  margin-bottom: 6px;
+}
+
+#modal-editar input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+#modal-editar .btn-salvar {
+  background-color: #1A3439;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+#modal-editar .btn-salvar:hover {
+  background-color: #265d68;
+}
+
+/* Overlay do modal */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 900;
+}
+
+/* Fechar Modal */
+.fechar-modal {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 24px;
+  color: #999;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.fechar-modal:hover {
+  color: #1A3439;
+}
+
+/* Botão principal de salvar */
+.btn-salvar {
+  background-color: #1A3439;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-salvar:hover {
+  background-color: #265d68;
+  transform: translateY(-2px);
+}
+
+/* Título da página e botão de cadastro */
+.main-content h2 {
+  margin-top: 30px;
+}
+
+.header-materiais {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0 15px;
+}
+
+.header-materiais h2 {
+  font-size: 26px;
+  color: #1A3439;
+  position: relative;
+  margin: 0;
+}
+
+.header-materiais h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #1A3439;
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+.btn-cadastrar {
+  background-color: #1A3439;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.btn-cadastrar:hover {
+  background-color: #265d68;
+  transform: translateY(-2px);
+}
+
+/* Botão editar */
+.btn-editar {
+  background-color: #ffffff;
+  border: 1px solid #1A3439;
+  color: #1A3439;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.btn-editar i {
+  font-size: 14px;
+}
+
+.btn-editar:hover {
+  background-color: #1A3439;
+  color: white;
+  transform: translateY(-1px);
+}
