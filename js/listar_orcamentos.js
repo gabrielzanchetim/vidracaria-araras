@@ -1,18 +1,36 @@
 (function() {
+  console.log('Initializing orcamentos module...');
+  
   let orcamentos = [];
 
   async function carregarOrcamentos() {
-    const resp = await fetch('../php/listar_orcamentos.php');
-    orcamentos = await resp.json();
-    renderizarTabela();
+    try {
+      console.log('Fetching orcamentos...');
+      const resp = await fetch('../php/listar_orcamentos.php');
+      if (!resp.ok) {
+        throw new Error(`HTTP error! status: ${resp.status}`);
+      }
+      const data = await resp.json();
+      console.log('Received orcamentos:', data);
+      orcamentos = data;
+      renderizarTabela();
+    } catch (error) {
+      console.error('Error loading orcamentos:', error);
+      alert('Erro ao carregar orçamentos. Por favor, tente novamente.');
+    }
   }
 
   function renderizarTabela() {
+    console.log('Rendering table with orcamentos:', orcamentos);
     const tbody = document.querySelector('#tabelaOrcamentos tbody');
+    if (!tbody) {
+      console.error('Table body element not found!');
+      return;
+    }
     tbody.innerHTML = '';
 
-    const busca = document.getElementById('busca').value.toLowerCase();
-    const dataRange = document.getElementById('filtroData').value;
+    const busca = document.getElementById('busca')?.value.toLowerCase() || '';
+    const dataRange = document.getElementById('filtroData')?.value || '';
 
     const resultados = orcamentos.filter(o => {
       const matchBusca = o.nome_cliente.toLowerCase().includes(busca) 
@@ -51,6 +69,8 @@
       return matchBusca && matchData;
     });
 
+    console.log('Filtered resultados:', resultados);
+
     resultados.forEach(o => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
@@ -80,6 +100,7 @@
     if (!confirm("Tem certeza que deseja excluir este orçamento?")) return;
 
     try {
+      console.log('Deleting orcamento:', { id, caminhoArquivo });
       const form = new FormData();
       form.append('id', id);
       form.append('caminho', caminhoArquivo);
@@ -90,6 +111,7 @@
       });
 
       const result = await resp.text();
+      console.log('Delete response:', result);
 
       if (!resp.ok) {
         console.error('Erro na exclusão:', result);
@@ -108,22 +130,40 @@
   // Make deletarOrcamento available globally
   window.deletarOrcamento = deletarOrcamento;
 
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize only once when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+  } else {
+    initializeApp();
+  }
+
+  function initializeApp() {
+    console.log('Initializing app...');
     carregarOrcamentos();
 
-    document.getElementById('busca').addEventListener('input', renderizarTabela);
-    document.getElementById('filtroData').addEventListener('change', renderizarTabela);
+    const buscaInput = document.getElementById('busca');
+    const filtroDataInput = document.getElementById('filtroData');
+    const limparFiltrosBtn = document.getElementById('limparFiltros');
 
-    flatpickr("#filtroData", {
-      mode: "range",
-      dateFormat: "d/m/Y",
-      locale: "pt"
-    });
-  });
-
-  document.getElementById('limparFiltros').addEventListener('click', () => {
-    document.getElementById('busca').value = '';
-    document.getElementById('filtroData')._flatpickr.clear();
-    renderizarTabela();
-  });
+    if (buscaInput) {
+      buscaInput.addEventListener('input', renderizarTabela);
+    }
+    if (filtroDataInput) {
+      filtroDataInput.addEventListener('change', renderizarTabela);
+      flatpickr("#filtroData", {
+        mode: "range",
+        dateFormat: "d/m/Y",
+        locale: "pt"
+      });
+    }
+    if (limparFiltrosBtn) {
+      limparFiltrosBtn.addEventListener('click', () => {
+        if (buscaInput) buscaInput.value = '';
+        if (filtroDataInput && filtroDataInput._flatpickr) {
+          filtroDataInput._flatpickr.clear();
+        }
+        renderizarTabela();
+      });
+    }
+  }
 })();
